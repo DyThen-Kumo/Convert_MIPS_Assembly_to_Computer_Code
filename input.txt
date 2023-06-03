@@ -1,0 +1,7 @@
+label:
+add   $t1, $t2  $t3 # haizzzz
+jr    $t1 #metmoi
+j label #em da co gang rat nhieu
+beq $s1,  $s2 , label
+lw $t3,  4($t4)
+j $ra
