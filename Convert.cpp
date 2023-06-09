@@ -10,6 +10,7 @@ string DecimalToBinary(int num)
             str += '0';
         num >>= 1;
     }
+    //while(str.size() < 5) str += '0';
     for(int i=0; i<str.size()/2; ++i)
         swap(str[i],str[str.size()-1-i]);
     return str;
