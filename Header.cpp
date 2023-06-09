@@ -13,7 +13,7 @@ string delete_space(string s) // delete space and comment
     s = " " + s;
     string ans = "";
     for(int i=1; i<s.size() && s[i]!='#'; ++i){
-        if(s[i] == ',' || s[i] == '(' || s[i] == ')')
+        if(s[i] == ',' || s[i] == '(' || s[i] == ')' || s[i] == '\t')
             s[i] = ' ';
         if(s[i] == ' ' && s[i-1] != ' ')
             ans += s[i];

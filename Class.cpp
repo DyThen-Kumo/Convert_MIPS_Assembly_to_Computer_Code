@@ -1,7 +1,7 @@
 #include "Header.h"
 #include "Header.cpp"
 #include "Convert.cpp"
-int first_address = HexadecimalToDecimal("1001000");
+int first_address = HexadecimalToDecimal("00400000");
 
 class Lenh{
 public:
@@ -86,7 +86,8 @@ public:
         int Addr;
         for(int i=0; i<label.size(); ++i) //find address
             if(label[i].second == LABEL){Addr = label[i].first; break;}
-        string JumpAddr = "0" + decToHexa(Addr);
+        string JumpAddr = decToHexa(Addr);
+        while(JumpAddr.size() < 8) JumpAddr = '0' + JumpAddr;
         JumpAddr = hexToBinary(JumpAddr);
         for(int i=4; i<JumpAddr.size()-2; ++i)
             ans += JumpAddr[i];
@@ -128,7 +129,10 @@ public:
             if(label[i].second == LABEL){Addr = label[i].first; break;}
         int BranchAddr = Addr - PC - 4;
         temp = bu2(BranchAddr);
-        while(temp.size() < 32) temp = temp[0] + temp;
+        if(BranchAddr >= 0)
+            while(temp.size() < 32) temp = '0' + temp;
+        else
+            while(temp.size() < 32) temp = '1' + temp;
         imme = temp.substr(14,16);
 
         rs = DecimalToBinary(reg[rs]);
@@ -261,7 +265,10 @@ public:
             immediate = immediate*10 + (imme[i++] - '0');
 
         string temp = bu2(immediate * checky);
-        while(temp.size() < 16) temp = temp[0] + temp;
+        if(checky == 1)
+            while(temp.size() < 16) temp = '0' + temp;
+        else
+            while(temp.size() < 16) temp = '1' + temp;
         imme = temp;
 
         rs = DecimalToBinary(reg[rs]);
