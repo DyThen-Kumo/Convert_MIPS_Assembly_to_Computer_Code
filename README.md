@@ -10,4 +10,3 @@
 + Lệnh loại J: j, jal.
 -> Bạn đọc cũng có thể thêm vào các lệnh khác (miễn là bạn biết viết thêm)
 - Ưu điểm của code này là bạn có thể thay đổi địa chỉ đầu tiên của câu lệnh nên là nó sẽ linh động hơn, còn nếu muốn chắc chắn thì bạn mở tool ra nha, code này tham khảo là chính.
-- Tui làm nó rất cực khổ á, nên là có xài thì ghi nguồn là DyThen nha <3
